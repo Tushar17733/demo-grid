@@ -1,0 +1,24 @@
+<div class="toolbar">
+  <div class="first">
+
+    <h2>Products</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Search Products</mat-label>
+      <input matInput #searchInput (input)="onSearch(searchInput.value)" />
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button class="btn" style="background-color: #0D47a1; color: white; font-size: 15px;" (click)="addProduct()">
+    <mat-icon>add</mat-icon> Add Product</button>
+</div>
+
+<ag-grid-angular class="ag-theme-alpine" 
+style="width: 100%; height: 700px" 
+[rowData]="rowData"
+  [columnDefs]="columnDefs" 
+  [defaultColDef]="defaultColDef" 
+  [pagination]="true" 
+  [paginationPageSize]="13"
+  (gridReady)="onGridReady($event)" 
+  [rowSelection]="'multiple'">
+</ag-grid-angular>

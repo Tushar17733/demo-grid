@@ -1,0 +1,76 @@
+/* Dialog container spacing */
+:host {
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Two-column responsive form grid */
+form.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding-top: 10px;
+}
+
+/* Make fields full width */
+mat-form-field {
+  width: 100%;
+}
+
+/* Taller textarea */
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Labels for file upload */
+label {
+  font-weight: 500;
+  font-size: 13px;
+  color: #555;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* File input spacing */
+input[type="file"] {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+/* Thumbnail & image preview styling */
+img {
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Multiple image preview row */
+.img-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Dialog action buttons spacing */
+[mat-dialog-actions] {
+  margin-top: 10px;
+}
+
+/* Buttons rounded look */
+button[mat-button],
+button[mat-raised-button] {
+  font-weight: 500;
+  text-transform: none;
+}
+/* Make selected fields full width in grid */
+.full {
+  grid-column: 1 / -1;
+}
+.error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: -13px;
+}

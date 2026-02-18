@@ -1,0 +1,101 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Product' : 'Add Product' }}</h2>
+
+<form [formGroup]="form" mat-dialog-content class="grid">
+
+  <!-- TITLE – full width -->
+  <div class="full">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <div class="error" *ngIf="form.get('title')?.touched && form.get('title')?.invalid">
+      Required
+    </div>
+  </div>
+
+  <!-- DESCRIPTION – full width -->
+  <div class="full">
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <div class="error" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
+      Required
+    </div>
+  </div>
+
+  <!-- CATEGORY -->
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
+    <div class="error" *ngIf="form.get('category')?.touched && form.get('category')?.invalid">
+      Required
+    </div>
+  </div>
+
+  <!-- BRAND -->
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Brand</mat-label>
+      <input matInput formControlName="brand" />
+    </mat-form-field>
+    <div class="error" *ngIf="form.get('brand')?.touched && form.get('brand')?.invalid">
+    Required
+    </div>
+  </div>
+
+  <!-- PRICE -->
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" formControlName="price" />
+    </mat-form-field>
+    <div class="error" *ngIf="form.get('price')?.touched && form.get('price')?.invalid">
+      Required
+    </div>
+  </div>
+
+  <!-- STOCK -->
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Stock</mat-label>
+      <input matInput type="number" formControlName="stock" />
+    </mat-form-field>
+    <div class="error" *ngIf="form.get('stock')?.touched && form.get('stock')?.invalid">
+      Required
+    </div>
+  </div>
+
+  <!-- THUMBNAIL (normal grid width) -->
+  <div>
+    <label>Thumbnail Upload</label>
+    <input type="file" (change)="onThumbnailUpload($event)" />
+    <img *ngIf="thumbnailPreview" [src]="thumbnailPreview" width="80" />
+  </div>
+
+  <!-- IMAGES (normal grid width) -->
+  <div>
+    <label>Images Upload</label>
+    <input type="file" multiple (change)="onImagesUpload($event)" />
+    <div class="img-list">
+      <img *ngFor="let img of imagesPreview" [src]="img" width="60" />
+    </div>
+  </div>
+
+</form>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+
+  <!-- Disabled until form valid -->
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="save()"
+    [disabled]="form.invalid"
+  >
+    Save
+  </button>
+</div>
