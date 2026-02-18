@@ -12,6 +12,10 @@ export class ProductDialogComponent {
   imagesPreview: string[] = [];
   thumbnailPreview = '';
 
+  get isEditMode(): boolean {
+  return !!this.data;
+}
+
   form = this.fb.group({
     id: [0],
     title: ['', Validators.required],

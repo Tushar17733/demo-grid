@@ -96,6 +96,6 @@
     (click)="save()"
     [disabled]="form.invalid"
   >
-    Save
+     {{ isEditMode ? 'Save' : 'Add' }}
   </button>
 </div>
