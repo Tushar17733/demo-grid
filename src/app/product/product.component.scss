@@ -92,11 +92,29 @@ button[mat-raised-button] {
   margin-bottom: 0 !important;
 }
 
-.btn{
-  background-color: #0D47a1;
-}
+
 .first{
   display: flex;
   flex-direction: column;
 }
 
+
+.mat-mdc-raised-button:not(:disabled) {
+    background-color: #0d47a1;
+    color: white;
+    font-size: 15px;
+}
+/* Reduce overall form-field height */
+:host ::ng-deep .mat-mdc-form-field {
+  font-size: 15px;            /* smaller text */
+}
+
+/* Reduce input padding & height */
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  height: 35px;               
+}
+
+input{
+  position: relative;
+  bottom: 3px;
+}

@@ -6,7 +6,7 @@ import { Product } from '../models/product.interface';
 @Component({
   selector: 'app-product-dialog',
   templateUrl: './product-dialog.component.html',
-  styleUrls: ['./product-dialog.component.css']
+  styleUrls: ['./product-dialog.component.scss']
 })
 export class ProductDialogComponent {
   imagesPreview: string[] = [];
@@ -73,4 +73,5 @@ export class ProductDialogComponent {
   close() {
     this.dialogRef.close();
   }
+ 
 }

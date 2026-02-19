@@ -22,12 +22,94 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 16px;
 }
 
-
 /* Delete button */
 .delete-btn {
   background: white;
   color: #c62828;
   font-size: 16px;
+}
+
+
+
+
+
+
+
+
+/** mat form feild*/
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-container-height: 30px;
+}
+
+/* Input padding & size */
+.mat-mdc-input-element {
+  padding: 4px 6px !important;
+  font-size: 14px;
+}
+
+/* Infix alignment */
+.mat-mdc-form-field-infix {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  min-height: unset !important;
+  display: flex;
+  align-items: center;
+}
+
+/* Center label when idle */
+/* Center label only when NOT floating */
+.mat-mdc-form-field:not(.mat-focused) .mdc-floating-label:not(.mdc-floating-label--float-above) {
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+}
+
+/* Wrapper fix */
+.mat-mdc-text-field-wrapper {
+  align-items: center;
+  font-size: 14px;
+  height: 30px !important;
+}
+
+.mat-mdc-text-field-wrapper.mat-mdc-form-field-textarea-control {
+  align-items: center;
+  font-size: 14px;
+  height: 30px !important;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+  background-color:#0D47a1 !important;
+  color: white !important;
+  height: 32px;
+}
+
+.mat-mdc-raised-button[disabled] {
+  height: 32px;
+}
+
+.mat-mdc-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-mdc-form-field.mat-form-field-appearance-outline .mat-form-field-infix textarea {
+  resize: none;
+  min-height: 56px;
+  max-height: 200px;
+}
+
+/* GLOBAL PAGE SCROLLBAR*/
+::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 

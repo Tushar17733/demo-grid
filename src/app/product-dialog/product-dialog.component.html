@@ -3,7 +3,7 @@
 <form [formGroup]="form" mat-dialog-content class="grid">
 
   <!-- TITLE – full width -->
-  <div class="full">
+  <div class="full compact-field">
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title" />
@@ -13,16 +13,6 @@
     </div>
   </div>
 
-  <!-- DESCRIPTION – full width -->
-  <div class="full">
-    <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description"></textarea>
-    </mat-form-field>
-    <div class="error" *ngIf="form.get('description')?.touched && form.get('description')?.invalid">
-      Required
-    </div>
-  </div>
 
   <!-- CATEGORY -->
   <div>
@@ -70,14 +60,14 @@
 
   <!-- THUMBNAIL (normal grid width) -->
   <div>
-    <label>Thumbnail Upload</label>
+    <label>Thumbnail</label>
     <input type="file" (change)="onThumbnailUpload($event)" />
     <img *ngIf="thumbnailPreview" [src]="thumbnailPreview" width="80" />
   </div>
 
   <!-- IMAGES (normal grid width) -->
   <div>
-    <label>Images Upload</label>
+    <label>Images</label>
     <input type="file" multiple (change)="onImagesUpload($event)" />
     <div class="img-list">
       <img *ngFor="let img of imagesPreview" [src]="img" width="60" />
@@ -92,7 +82,7 @@
   <!-- Disabled until form valid -->
   <button
     mat-raised-button
-    color="primary"
+    
     (click)="save()"
     [disabled]="form.invalid"
   >

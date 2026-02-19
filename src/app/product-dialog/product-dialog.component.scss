@@ -17,12 +17,6 @@ mat-form-field {
   width: 100%;
 }
 
-/* Taller textarea */
-textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
 /* Labels for file upload */
 label {
   font-weight: 500;
@@ -73,4 +67,10 @@ button[mat-raised-button] {
   font-size: 12px;
   margin-top: 0px;
   margin-bottom: -13px;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+    background-color: #0d47a1;
+    color: white;
+    font-size: 15px;
 }
