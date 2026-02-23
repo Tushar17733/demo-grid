@@ -112,5 +112,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: #a8a8a8;
 }
 
-
+.shaded-class {
+    background-color: #99999944;
+}
 

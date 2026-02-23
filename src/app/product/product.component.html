@@ -13,14 +13,15 @@
 </div>
 
 <ag-grid-angular class="ag-theme-alpine" 
-style="width: 100%; height: 700px" 
+style="width: 100%; height: 790px" 
 [rowData]="rowData"
   [columnDefs]="columnDefs" 
   [defaultColDef]="defaultColDef" 
   [pagination]="true" 
-  [paginationPageSize]="18"
+  [paginationPageSize]="21"
   (gridReady)="onGridReady($event)" 
   [rowSelection]="'multiple'"
-  [rowHeight]="32">
+  [rowHeight]="31"
+  [columnTypes]="columnTypes">
   
 </ag-grid-angular>

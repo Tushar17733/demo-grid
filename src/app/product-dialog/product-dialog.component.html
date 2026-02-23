@@ -1,9 +1,13 @@
-<h2 mat-dialog-title>{{ data ? 'Edit Product' : 'Add Product' }}</h2>
+<div class="header">
+
+  <h2 mat-dialog-title>{{ data ? 'Edit Product' : 'Add Product' }}</h2>
+  <mat-icon align="end" (click)="close()">cancel</mat-icon>
+</div>
 
 <form [formGroup]="form" mat-dialog-content class="grid">
 
   <!-- TITLE – full width -->
-  <div class="full compact-field">
+  <div class="full">
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title" />
@@ -12,7 +16,6 @@
       Required
     </div>
   </div>
-
 
   <!-- CATEGORY -->
   <div>
@@ -76,8 +79,8 @@
 
 </form>
 
-<div mat-dialog-actions align="end">
-  <button mat-button (click)="close()">Cancel</button>
+<div mat-dialog-actions align="end" class="ends">
+  <button mat-stroked-button (click)="close()">Cancel</button>
 
   <!-- Disabled until form valid -->
   <button

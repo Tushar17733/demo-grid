@@ -14,7 +14,12 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 export class ProductComponent implements OnInit {
   rowData: Product[] = [];
   gridApi!: GridApi;
-  quickFilter = '';
+
+  columnTypes={
+    shaded:{
+      cellClass:'shaded-class'
+    }
+  }
 
   columnDefs: (ColDef | ColGroupDef)[] = [
     {
@@ -42,7 +47,7 @@ export class ProductComponent implements OnInit {
       headerName: 'Thumbnail',
       field: 'thumbnail',
       cellRenderer: (params: any) => `<img src="${params.value}" width="50"/>`,
-      flex: 1
+      flex: 1,
     },
 
     {
@@ -55,7 +60,7 @@ export class ProductComponent implements OnInit {
     {
       field: 'price',
       valueFormatter: p => '$' + p.value,
-      flex: 1
+      flex: 1,
     },
     { field: 'stock', flex: 1 },
 
@@ -63,8 +68,8 @@ export class ProductComponent implements OnInit {
       headerName: 'Actions',
       cellRenderer: (params: any) => {
         return `
-          <button class="edit-btn">Edit</button>
-          <button class="delete-btn">Delete</button>
+          <button mat-stroked-button class="edit-btn">Edit</button>
+          <button  mat-stroked-button class="delete-btn">Delete</button>
         `;
       },
       onCellClicked: (params: any) => {
@@ -102,7 +107,7 @@ export class ProductComponent implements OnInit {
       this.rowData = this.rowData.map(p => (p.id === updated.id ? updated : p));
       this.showMessage('Product updated successfully ');
     });
-
+    
   }
 
   delete(product: Product) {

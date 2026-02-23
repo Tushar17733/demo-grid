@@ -19,7 +19,6 @@ export class ProductDialogComponent {
   form = this.fb.group({
     id: [0],
     title: ['', Validators.required],
-    description: ['', Validators.required],
     category: ['', Validators.required],
     brand: ['', Validators.required],
     price: [null, [Validators.required, Validators.min(0)]],
@@ -32,7 +31,8 @@ export class ProductDialogComponent {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<ProductDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
+  ) 
+  {
     if (data) {
       this.form.patchValue(data);
       this.thumbnailPreview = data.thumbnail;
