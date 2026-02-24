@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Product } from '../models/product.interface';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-product-dialog',
@@ -13,8 +14,8 @@ export class ProductDialogComponent {
   thumbnailPreview = '';
 
   get isEditMode(): boolean {
-  return !!this.data;
-}
+    return !!this.data;
+  }
 
   form = this.fb.group({
     id: [0],
@@ -29,10 +30,10 @@ export class ProductDialogComponent {
 
   constructor(
     private fb: FormBuilder,
+    private productService: ProductService,
     private dialogRef: MatDialogRef<ProductDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) 
-  {
+  ) {
     if (data) {
       this.form.patchValue(data);
       this.thumbnailPreview = data.thumbnail;
@@ -67,11 +68,32 @@ export class ProductDialogComponent {
 
   save() {
     if (this.form.invalid) return;
+
+    const formValue = this.form.value;
+
+    // Ensure all required Product fields are present
+    const payload: Product = {
+      id: formValue.id ?? 0,
+      title: formValue.title ?? '',
+      category: formValue.category ?? '',
+      brand: formValue.brand ?? '',
+      price: formValue.price ?? 0,
+      stock: formValue.stock ?? 0,
+      thumbnail: formValue.thumbnail ?? '',
+      images: formValue.images ?? [],
+    };
+
+    this.productService.addProduct(payload)
+      .subscribe(res => {
+        this.dialogRef.close(res);
+      });
+      
+      //closing dialog will get form values in UI
     this.dialogRef.close(this.form.value);
   }
 
   close() {
     this.dialogRef.close();
   }
- 
+
 }

@@ -46,7 +46,7 @@ export class ProductComponent implements OnInit {
     {
       headerName: 'Thumbnail',
       field: 'thumbnail',
-      cellRenderer: (params: any) => `<img src="${params.value}" width="50"/>`,
+      cellRenderer: (p: any) => `<img src="${p.value}" width="50"/>`,
       flex: 1,
     },
 
@@ -66,15 +66,15 @@ export class ProductComponent implements OnInit {
 
     {
       headerName: 'Actions',
-      cellRenderer: (params: any) => {
+      cellRenderer: (p: any) => {
         return `
           <button mat-stroked-button class="edit-btn">Edit</button>
           <button  mat-stroked-button class="delete-btn">Delete</button>
         `;
       },
-      onCellClicked: (params: any) => {
-        if (params.event.target.classList.contains('edit-btn')) this.edit(params.data);
-        if (params.event.target.classList.contains('delete-btn')) this.delete(params.data);
+      onCellClicked: (p: any) => {
+        if (p.event.target.classList.contains('edit-btn')) this.edit(p.data);
+        if (p.event.target.classList.contains('delete-btn')) this.delete(p.data);
       },
       flex: 1
     }
